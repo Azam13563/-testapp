@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl" class="dark">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>شفل | SHUFF — تأجير السيارات الفاخرة</title>
 <meta name="description" content="تطبيق شفل لتأجير السيارات بتصميم آبل الحديث وتجربة حجز فورية وسلسة.">
 <meta name="theme-color" content="#000000">
@@ -50,25 +50,11 @@ tailwind.config = {
 </script>
 
 <style>
-/* ═══════════════════════════════════════════════
-   ROOT & SAFE AREA
-   ═══════════════════════════════════════════════ */
-:root{
-  --safe-top: env(safe-area-inset-top, 0px);
-  --safe-bottom: env(safe-area-inset-bottom, 0px);
-  --safe-left: env(safe-area-inset-left, 0px);
-  --safe-right: env(safe-area-inset-right, 0px);
-}
-
-*{-webkit-tap-highlight-color:transparent; box-sizing:border-box;}
-html,body{
-  overscroll-behavior-y: none;
-}
+*{-webkit-tap-highlight-color:transparent}
 body{
   font-family:'Tajawal',-apple-system,sans-serif;
   transition:background-color .35s ease,color .35s ease;
   overflow-x:hidden;
-  padding-bottom: calc(96px + var(--safe-bottom)) !important;
 }
 input,textarea,select{user-select:text}
 ::-webkit-scrollbar{width:5px;height:5px}
@@ -114,20 +100,7 @@ input,textarea,select{user-select:text}
 }
 .d1{animation-delay:.05s} .d2{animation-delay:.10s} .d3{animation-delay:.15s}
 .d4{animation-delay:.20s} .d5{animation-delay:.25s} .d6{animation-delay:.30s}
-
-/* ═══════════════════════════════════════════════
-   HEADER — safe area top
-   ═══════════════════════════════════════════════ */
-.app-header{
-  padding-top: var(--safe-top);
-}
-
-/* ═══════════════════════════════════════════════
-   MAIN — top offset for header + safe area
-   ═══════════════════════════════════════════════ */
-.app-main{
-  padding-top: calc(88px + var(--safe-top));
-}
+.d7{animation-delay:.35s} .d8{animation-delay:.40s}
 
 /* ═══════════════════════════════════════════════
    HERO BANNER
@@ -135,8 +108,8 @@ input,textarea,select{user-select:text}
 .hero-banner{
   position:relative;
   overflow:hidden;
-  border-radius:22px;
-  padding:20px;
+  border-radius:24px;
+  padding:22px;
   background:
     radial-gradient(120% 100% at 100% 0%, rgba(255,107,0,.28) 0%, transparent 55%),
     radial-gradient(90% 80% at 0% 100%, rgba(255,107,0,.12) 0%, transparent 50%),
@@ -147,7 +120,7 @@ input,textarea,select{user-select:text}
 }
 .hero-banner img{
   position:absolute;left:-8%;bottom:-14%;
-  width:60%;max-width:240px;
+  width:60%;max-width:280px;
   opacity:.32;
   filter:saturate(.8) contrast(1.05);
   mask-image:linear-gradient(180deg,#000 30%,transparent 92%);
@@ -162,11 +135,11 @@ input,textarea,select{user-select:text}
 .hero-badge{
   display:inline-flex;align-items:center;gap:7px;
   padding:6px 12px;border-radius:99px;
-  font-size:10.5px;font-weight:700;
+  font-size:11px;font-weight:700;
   color:#FFB884;
   background:rgba(255,107,0,.14);
   border:1px solid rgba(255,107,0,.28);
-  margin-bottom:12px;
+  margin-bottom:14px;
 }
 .hero-badge .dot{
   width:5px;height:5px;border-radius:50%;
@@ -175,21 +148,6 @@ input,textarea,select{user-select:text}
   animation:softPulse 2.2s ease-in-out infinite;
 }
 @keyframes softPulse{50%{opacity:.5}}
-
-.hero-title{
-  font-size:clamp(22px, 6.5vw, 28px);
-  font-weight:900;
-  color:#fff;
-  line-height:1.2;
-  margin-bottom:10px;
-  letter-spacing:-.025em;
-}
-.hero-desc{
-  font-size:12.5px;
-  line-height:1.7;
-  color:#B8B8BC;
-  max-width:34ch;
-}
 
 /* ═══════════════════════════════════════════════
    SEARCH
@@ -203,14 +161,12 @@ input,textarea,select{user-select:text}
 .search-wrap:focus-within .search-icon{color:#FF6B00}
 .search-input{
   width:100%;
-  padding:13px 42px 13px 16px;
+  padding:14px 42px 14px 16px;
   border-radius:16px;
   background:#1C1C1E;
   border:1px solid rgba(255,255,255,.08);
   color:#fff;
-  /* IMPORTANT: 16px يمنع الـ zoom التلقائي في iOS */
-  font-size:16px;
-  font-weight:500;
+  font-size:13.5px;font-weight:500;
   outline:none;
   transition:all .3s cubic-bezier(.22,1,.36,1);
   font-family:'Tajawal',sans-serif;
@@ -230,22 +186,18 @@ input,textarea,select{user-select:text}
 .pills-scroll{
   display:flex;gap:8px;overflow-x:auto;
   padding-bottom:4px;scrollbar-width:none;
-  -webkit-overflow-scrolling:touch;
-  scroll-snap-type:x proximity;
 }
 .pills-scroll::-webkit-scrollbar{display:none}
 .pill{
-  padding:8px 15px;
+  padding:9px 17px;
   border-radius:99px;
-  font-size:12px;font-weight:700;
+  font-size:12.5px;font-weight:700;
   white-space:nowrap;
   background:#1C1C1E;
   border:1px solid rgba(255,255,255,.08);
   color:#9A9A9E;
   transition:all .28s cubic-bezier(.22,1,.36,1);
   flex-shrink:0;
-  font-family:'Tajawal',sans-serif;
-  cursor:pointer;
 }
 .light .pill{background:#fff;color:#6A6A6E;border-color:rgba(0,0,0,.06)}
 .pill:hover{
@@ -267,7 +219,7 @@ input,textarea,select{user-select:text}
    ═══════════════════════════════════════════════ */
 .car-card{
   position:relative;
-  border-radius:20px;
+  border-radius:22px;
   overflow:hidden;
   background:#1C1C1E;
   border:1px solid rgba(255,255,255,.07);
@@ -285,7 +237,7 @@ input,textarea,select{user-select:text}
 .car-card:active{transform:translateY(-2px) scale(.995)}
 
 .car-card-img-wrap{
-  position:relative;height:180px;overflow:hidden;
+  position:relative;height:190px;overflow:hidden;
   background:linear-gradient(150deg,#18181B,#0A0A0A);
 }
 .car-card-img{
@@ -309,20 +261,20 @@ input,textarea,select{user-select:text}
   border:1px solid rgba(255,255,255,.14);
 }
 
-.car-body{padding:14px}
+.car-body{padding:16px}
 .car-head{
   display:flex;align-items:flex-start;justify-content:space-between;gap:10px;
   margin-bottom:12px;
 }
 .car-title{
-  font-size:14.5px;font-weight:800;
+  font-size:15px;font-weight:800;
   line-height:1.3;letter-spacing:-.015em;
   color:#fff;flex:1;min-width:0;
 }
 .light .car-title{color:#000}
 .car-cat{
   padding:4px 9px;border-radius:99px;
-  font-size:9.5px;font-weight:700;
+  font-size:10px;font-weight:700;
   color:#FFB884;
   background:rgba(255,107,0,.14);
   border:1px solid rgba(255,107,0,.24);
@@ -331,19 +283,19 @@ input,textarea,select{user-select:text}
 
 .car-specs{
   display:grid;grid-template-columns:repeat(3,1fr);
-  gap:4px;padding:9px 6px;border-radius:12px;
+  gap:4px;padding:10px 6px;border-radius:14px;
   background:#2C2C2E;
   border:1px solid rgba(255,255,255,.04);
-  margin-bottom:12px;
+  margin-bottom:14px;
 }
 .light .car-specs{background:#F2F2F7;border-color:rgba(0,0,0,.04)}
 .spec{
   display:flex;flex-direction:column;align-items:center;gap:4px;
-  padding:3px 2px;min-width:0;
+  padding:4px 2px;
 }
 .spec i{font-size:11px;color:#FF6B00}
 .spec span{
-  font-size:9.5px;font-weight:600;
+  font-size:10px;font-weight:600;
   color:#B8B8BC;text-align:center;line-height:1.2;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   max-width:100%;
@@ -351,36 +303,32 @@ input,textarea,select{user-select:text}
 .light .spec span{color:#5A5A5E}
 
 .car-foot{
-  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
 }
-.car-price{display:flex;align-items:baseline;gap:5px;min-width:0}
+.car-price{display:flex;align-items:baseline;gap:5px}
 .car-price-num{
-  font-size:20px;font-weight:900;
+  font-size:22px;font-weight:900;
   color:#FF6B00;letter-spacing:-.02em;line-height:1;
 }
-.car-price-cur{font-size:10px;color:#8A8A8E;font-weight:600;white-space:nowrap}
+.car-price-cur{font-size:10.5px;color:#8A8A8E;font-weight:600}
 
 .btn-book{
-  padding:9px 18px;border-radius:99px;
-  font-size:12px;font-weight:800;color:#fff;
+  padding:10px 20px;border-radius:99px;
+  font-size:12.5px;font-weight:800;color:#fff;
   background:linear-gradient(178deg,#FF8A33,#FF6B00 55%,#E05D00);
   box-shadow:0 8px 20px -8px rgba(255,107,0,.7),inset 0 1px 0 rgba(255,255,255,.4);
   transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .3s ease;
   font-family:'Tajawal',sans-serif;
-  white-space:nowrap;
-  cursor:pointer;
-  border:none;
 }
 .btn-book:hover{box-shadow:0 12px 26px -8px rgba(255,107,0,.85),inset 0 1px 0 rgba(255,255,255,.5)}
 .btn-book:active{transform:scale(.94)}
 
 /* ═══════════════════════════════════════════════
-   BOTTOM NAV — safe area bottom
+   BOTTOM NAV
    ═══════════════════════════════════════════════ */
 .bottom-nav{
   position:fixed;bottom:0;left:0;right:0;z-index:40;
   border-top:1px solid rgba(255,255,255,.06);
-  padding-bottom: var(--safe-bottom);
 }
 .light .bottom-nav{border-color:rgba(0,0,0,.05)}
 .nav-inner{
@@ -405,18 +353,15 @@ input,textarea,select{user-select:text}
 }
 
 .nav-btn{
-  padding:11px 6px 12px;
+  padding:13px 6px 15px;
   display:flex;flex-direction:column;align-items:center;gap:4px;
   color:#6A6A6E;
   transition:color .25s ease;
   position:relative;
   font-family:'Tajawal',sans-serif;
-  background:transparent;
-  border:none;
-  cursor:pointer;
 }
 .nav-btn i{font-size:15px;transition:transform .5s cubic-bezier(.34,1.4,.5,1)}
-.nav-btn span{font-size:10px;font-weight:700;letter-spacing:-.005em}
+.nav-btn span{font-size:10.5px;font-weight:700;letter-spacing:-.005em}
 .nav-btn.active{color:#FF6B00}
 .nav-btn.active i{transform:translateY(-1px) scale(1.08)}
 .nav-btn:active i{transform:scale(.9)}
@@ -424,7 +369,7 @@ input,textarea,select{user-select:text}
 .light .nav-btn.active{color:#FF6B00}
 
 .nav-dot{
-  position:absolute;top:8px;right:calc(50% - 14px);
+  position:absolute;top:9px;right:calc(50% - 14px);
   width:6px;height:6px;background:#FF6B00;border-radius:50%;
   animation:softPulse 1.8s ease-in-out infinite;
   box-shadow:0 0 0 3px rgba(255,107,0,.2);
@@ -435,11 +380,10 @@ input,textarea,select{user-select:text}
    ═══════════════════════════════════════════════ */
 .social-popover{
   position:fixed;
-  top: calc(68px + var(--safe-top));
-  left:50%;
+  top:68px;left:50%;
   transform:translateX(-50%) translateY(-8px) scale(.96);
   z-index:60;
-  width:min(280px,calc(100vw - 24px));
+  width:min(280px,calc(100vw - 32px));
   padding:8px;
   border-radius:20px;
   background:rgba(28,28,30,.94);
@@ -491,7 +435,6 @@ input,textarea,select{user-select:text}
   padding:11px 12px;border-radius:14px;
   transition:background .25s ease,transform .3s cubic-bezier(.22,1,.36,1);
   width:100%;text-align:right;
-  text-decoration:none;
 }
 .social-item:hover{background:rgba(255,255,255,.06)}
 .light .social-item:hover{background:rgba(0,0,0,.04)}
@@ -530,7 +473,7 @@ input,textarea,select{user-select:text}
 }
 
 /* ═══════════════════════════════════════════════
-   BOTTOM SHEET — mobile friendly
+   BOTTOM SHEET
    ═══════════════════════════════════════════════ */
 .sheet-overlay{
   position:fixed;inset:0;z-index:50;
@@ -545,16 +488,10 @@ input,textarea,select{user-select:text}
 .light .sheet-overlay{background:rgba(30,30,40,.35)}
 
 .sheet-content{
-  width:100%;
-  max-width:520px;
-  /* dvh لدعم متصفحات الجوال */
-  max-height: 92dvh;
-  max-height: 92vh;
-  overflow-y:auto;
-  -webkit-overflow-scrolling:touch;
-  overscroll-behavior:contain;
-  padding:18px 16px calc(20px + var(--safe-bottom));
-  border-radius:24px 24px 0 0;
+  width:100%;max-width:520px;
+  max-height:90vh;overflow-y:auto;
+  padding:20px 20px 24px;
+  border-radius:26px 26px 0 0;
   background:#1C1C1E;
   border-top:1px solid rgba(255,255,255,.1);
   transform:translateY(100%);
@@ -571,21 +508,18 @@ input,textarea,select{user-select:text}
 .sheet-handle{
   width:38px;height:4px;border-radius:99px;
   background:rgba(255,255,255,.2);
-  margin:0 auto 16px;cursor:pointer;
+  margin:0 auto 18px;cursor:pointer;
   transition:background .25s ease;
-  flex-shrink:0;
 }
 .sheet-handle:hover{background:rgba(255,255,255,.35)}
 .light .sheet-handle{background:rgba(0,0,0,.15)}
 
 .sheet-close{
-  position:absolute;top:18px;left:16px;
-  width:34px;height:34px;border-radius:50%;
+  position:absolute;top:20px;left:20px;
+  width:32px;height:32px;border-radius:50%;
   display:grid;place-items:center;
   background:#2C2C2E;color:#B8B8BC;
   transition:all .3s cubic-bezier(.22,1,.36,1);
-  border:none;cursor:pointer;
-  z-index:5;
 }
 .light .sheet-close{background:#EFEFF4;color:#6A6A6E}
 .sheet-close:hover{color:#fff;background:#3A3A3C}
@@ -593,41 +527,17 @@ input,textarea,select{user-select:text}
 .sheet-close:active{transform:scale(.9)}
 .sheet-close i{font-size:12px}
 
-/* الرأس (صورة + اسم السيارة) */
-.sheet-head{
-  display:flex;align-items:center;gap:12px;
-  padding-bottom:14px;margin-bottom:14px;
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-.light .sheet-head{border-color:rgba(0,0,0,.05)}
-.sheet-head-img{
-  width:76px;height:64px;border-radius:14px;
-  object-fit:cover;border:1px solid rgba(255,255,255,.08);
-  flex-shrink:0;
-}
-.sheet-head-info{flex:1;min-width:0}
-
 /* ═══════════════════════════════════════════════
-   FORM — حقول بحجم 16px لمنع zoom في iOS
+   FORM
    ═══════════════════════════════════════════════ */
 .form-input,.form-select{
-  width:100%;
-  padding:13px 14px;
-  border-radius:13px;
+  width:100%;padding:12px 14px;border-radius:13px;
   background:#2C2C2E;
   border:1px solid rgba(255,255,255,.06);
-  color:#fff;
-  /* 16px يمنع zoom auto على iOS */
-  font-size:16px;
-  font-weight:500;
+  color:#fff;font-size:13px;font-weight:500;
   font-family:'Tajawal',sans-serif;
   outline:none;
   transition:all .3s cubic-bezier(.22,1,.36,1);
-  min-width:0;
-  /* iOS date input appearance */
-  -webkit-appearance:none;
-  appearance:none;
-  -webkit-min-logical-width: 0;
 }
 .light .form-input,.light .form-select{
   background:#F2F2F7;color:#000;border-color:rgba(0,0,0,.05);
@@ -639,33 +549,8 @@ input,textarea,select{user-select:text}
   box-shadow:0 0 0 4px rgba(255,107,0,.1);
 }
 .light .form-input:focus,.light .form-select:focus{background:#fff}
-
-/* إصلاح date input على الجوال */
-.form-input[type="date"]{
-  min-height:48px;
-  padding:13px 14px;
-  font-family:'Tajawal',sans-serif;
-  text-align:right;
-  direction:rtl;
-}
-.form-input[type="date"]::-webkit-calendar-picker-indicator{
-  filter: invert(1);
-  opacity:.6;
-  cursor:pointer;
-  margin-right:auto;
-  margin-left:0;
-}
-.light .form-input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(0)}
-
-/* إزالة أسهم number input */
-.form-input[type="number"]::-webkit-outer-spin-button,
-.form-input[type="number"]::-webkit-inner-spin-button{
-  -webkit-appearance:none;margin:0;
-}
-.form-input[type="number"]{-moz-appearance:textfield}
-
 .form-select{
-  cursor:pointer;
+  cursor:pointer;appearance:none;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 24 24' fill='none' stroke='%238A8A8E' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
   background-repeat:no-repeat;
   background-position:left 14px center;
@@ -679,37 +564,33 @@ input,textarea,select{user-select:text}
 
 .btn-submit{
   width:100%;padding:14px;border-radius:13px;
-  font-size:14px;font-weight:800;color:#fff;
+  font-size:13.5px;font-weight:800;color:#fff;
   background:linear-gradient(178deg,#FF8A33,#FF6B00 55%,#E05D00);
   box-shadow:0 10px 26px -10px rgba(255,107,0,.7),inset 0 1px 0 rgba(255,255,255,.4);
   display:flex;align-items:center;justify-content:center;gap:8px;
   transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .3s ease;
   font-family:'Tajawal',sans-serif;
-  border:none;cursor:pointer;
-  min-height:48px;
 }
 .btn-submit:hover{box-shadow:0 14px 32px -10px rgba(255,107,0,.85),inset 0 1px 0 rgba(255,255,255,.5)}
 .btn-submit:active{transform:scale(.98)}
 .btn-submit i{font-size:12px}
 
 /* ═══════════════════════════════════════════════
-   DELIVERY OPTION — responsive
+   DELIVERY OPTION (segmented)
    ═══════════════════════════════════════════════ */
 .delivery-opts{
-  display:grid;
-  grid-template-columns:1fr 1fr;
+  display:grid;grid-template-columns:1fr 1fr;
   gap:8px;
 }
 .delivery-opt{
   position:relative;
-  padding:10px;
+  padding:12px 12px;
   border-radius:13px;
   background:#2C2C2E;
   border:1.5px solid rgba(255,255,255,.06);
   cursor:pointer;
   transition:all .3s cubic-bezier(.22,1,.36,1);
-  display:flex;align-items:center;gap:8px;
-  min-width:0;
+  display:flex;align-items:center;gap:10px;
 }
 .light .delivery-opt{background:#F2F2F7;border-color:rgba(0,0,0,.05)}
 .delivery-opt:hover{border-color:rgba(255,255,255,.14)}
@@ -718,32 +599,26 @@ input,textarea,select{user-select:text}
   position:absolute;opacity:0;pointer-events:none;
 }
 .delivery-opt .opt-icon{
-  width:30px;height:30px;border-radius:9px;
+  width:32px;height:32px;border-radius:10px;
   display:grid;place-items:center;
   background:rgba(255,255,255,.06);
-  color:#9A9A9E;font-size:12px;
+  color:#9A9A9E;font-size:13px;
   flex-shrink:0;
   transition:all .3s ease;
 }
 .light .delivery-opt .opt-icon{background:rgba(0,0,0,.05)}
 .delivery-opt .opt-text{
-  display:flex;flex-direction:column;gap:2px;min-width:0;flex:1;
+  display:flex;flex-direction:column;gap:2px;min-width:0;
 }
 .delivery-opt .opt-title{
-  font-size:11.5px;font-weight:800;
+  font-size:12px;font-weight:800;
   color:#fff;letter-spacing:-.005em;
   line-height:1.2;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
 }
 .light .delivery-opt .opt-title{color:#000}
 .delivery-opt .opt-sub{
-  font-size:9px;font-weight:600;
+  font-size:9.5px;font-weight:600;
   color:#8A8A8E;line-height:1.2;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
 }
 .delivery-opt:has(input:checked){
   border-color:#FF6B00;
@@ -764,15 +639,6 @@ input,textarea,select{user-select:text}
 .delivery-opt:has(input:checked) .opt-sub{color:#FFB884}
 
 /* ═══════════════════════════════════════════════
-   GRID — responsive stacking
-   ═══════════════════════════════════════════════ */
-.grid-2-mobile-stack{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-}
-
-/* ═══════════════════════════════════════════════
    LOGOUT BUTTON
    ═══════════════════════════════════════════════ */
 .logout-btn{
@@ -783,13 +649,11 @@ input,textarea,select{user-select:text}
   border:1px solid rgba(255,69,58,.22);
   color:#FF453A;
   font-family:'Tajawal',sans-serif;
-  font-size:14px;font-weight:800;
+  font-size:13.5px;font-weight:800;
   display:flex;align-items:center;
   justify-content:space-between;
   gap:10px;
   transition:all .3s cubic-bezier(.22,1,.36,1);
-  cursor:pointer;
-  min-height:52px;
 }
 .logout-btn:hover{
   background:rgba(255,69,58,.14);
@@ -806,12 +670,11 @@ input,textarea,select{user-select:text}
   font-size:13px;
 }
 .logout-btn .right{
-  font-size:10.5px;color:rgba(255,69,58,.6);
-  letter-spacing:.05em;font-weight:700;
+  font-size:11px;color:rgba(255,69,58,.6);
 }
 
 /* ═══════════════════════════════════════════════
-   TIMER MODAL — mobile safe
+   TIMER MODAL
    ═══════════════════════════════════════════════ */
 .timer-overlay{
   position:fixed;inset:0;z-index:60;
@@ -821,108 +684,73 @@ input,textarea,select{user-select:text}
   opacity:0;pointer-events:none;
   transition:opacity .35s ease;
   display:flex;align-items:center;justify-content:center;
-  padding:16px;
-  padding-top: calc(16px + var(--safe-top));
-  padding-bottom: calc(16px + var(--safe-bottom));
-  overflow-y:auto;
+  padding:20px;
 }
 .timer-overlay.active{opacity:1;pointer-events:auto}
 .light .timer-overlay{background:rgba(30,30,40,.5)}
 
 .timer-card{
   width:100%;max-width:380px;
-  padding:22px 18px 20px;
-  border-radius:22px;
+  padding:26px 22px 22px;
+  border-radius:24px;
   background:#1C1C1E;
   border:1px solid rgba(255,255,255,.1);
   box-shadow:0 30px 70px -30px rgba(0,0,0,.95);
   text-align:center;
   transform:scale(.94) translateY(10px);
   transition:transform .5s cubic-bezier(.34,1.4,.5,1);
-  margin:auto;
-  max-height: calc(100dvh - 32px);
-  max-height: calc(100vh - 32px);
-  overflow-y:auto;
-  -webkit-overflow-scrolling:touch;
 }
 .light .timer-card{background:#fff;border-color:rgba(0,0,0,.06)}
 .timer-overlay.active .timer-card{transform:scale(1) translateY(0)}
 
 .timer-ring{
-  width:80px;height:80px;margin:0 auto 16px;
+  width:92px;height:92px;margin:0 auto 18px;
   border-radius:50%;
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
   background:radial-gradient(circle,rgba(255,107,0,.14),transparent 72%);
   border:2px solid rgba(255,107,0,.28);
   box-shadow:0 0 40px -10px rgba(255,107,0,.5);
   animation:ringPulse 2.4s ease-in-out infinite;
-  flex-shrink:0;
 }
 @keyframes ringPulse{
   0%,100%{transform:scale(1);box-shadow:0 0 40px -10px rgba(255,107,0,.5)}
   50%{transform:scale(1.04);box-shadow:0 0 55px -8px rgba(255,107,0,.7)}
 }
-.timer-ring i{font-size:14px;color:#FF6B00;margin-bottom:2px}
+.timer-ring i{font-size:15px;color:#FF6B00;margin-bottom:2px}
 .timer-count{
-  font-size:22px;font-weight:900;
+  font-size:24px;font-weight:900;
   letter-spacing:.02em;color:#fff;line-height:1;
   font-variant-numeric:tabular-nums;
 }
 .light .timer-count{color:#000}
 
 .timer-title{
-  font-size:15px;font-weight:900;
+  font-size:16px;font-weight:900;
   color:#fff;letter-spacing:-.015em;
   margin-bottom:6px;
 }
 .light .timer-title{color:#000}
-.timer-sub{font-size:12px;color:#8A8A8E;margin-bottom:16px}
+.timer-sub{font-size:12.5px;color:#8A8A8E;margin-bottom:18px}
 
 .timer-note{
-  padding:12px 14px;border-radius:13px;
+  padding:14px 16px;border-radius:14px;
   text-align:right;background:#2C2C2E;
   border:1px solid rgba(255,255,255,.05);
-  margin-bottom:14px;
+  margin-bottom:16px;
 }
 .light .timer-note{background:#F2F2F7;border-color:rgba(0,0,0,.04)}
 .timer-note p{
-  font-size:11.5px;line-height:1.8;
+  font-size:12px;line-height:1.85;
   color:#B8B8BC;display:flex;gap:8px;
 }
 .light .timer-note p{color:#4A4A4E}
-.timer-note i{color:#FF6B00;font-size:11px;flex-shrink:0;margin-top:4px}
+.timer-note i{color:#FF6B00;font-size:12px;flex-shrink:0;margin-top:4px}
 
 /* ═══════════════════════════════════════════════
-   PROFILE & STATS — responsive
-   ═══════════════════════════════════════════════ */
-.profile-card{
-  border-radius:22px;
-  background:#1C1C1E;
-  border:1px solid rgba(255,255,255,.07);
-  padding:18px;
-  margin-bottom:14px;
-}
-.light .profile-card{
-  background:#fff;border-color:rgba(0,0,0,.05);
-}
-.stat-box{
-  border-radius:18px;
-  background:#1C1C1E;
-  border:1px solid rgba(255,255,255,.07);
-  padding:14px 10px;
-  text-align:center;
-}
-.light .stat-box{
-  background:#fff;border-color:rgba(0,0,0,.05);
-}
-
-/* ═══════════════════════════════════════════════
-   TOAST — safe area top
+   TOAST
    ═══════════════════════════════════════════════ */
 .toast{
-  position:fixed;
-  top: calc(80px + var(--safe-top));
-  left:50%;
+  position:fixed;top:80px;left:50%;
   transform:translateX(-50%) translateY(-14px);
   z-index:80;
   display:flex;align-items:center;gap:9px;
@@ -933,108 +761,11 @@ input,textarea,select{user-select:text}
   font-size:12.5px;font-weight:700;
   color:#fff;opacity:0;pointer-events:none;
   transition:opacity .3s ease,transform .45s cubic-bezier(.22,1,.36,1);
-  max-width:calc(100% - 24px);
+  max-width:calc(100% - 40px);
 }
 .light .toast{background:#fff;color:#000;border-color:rgba(0,0,0,.06);box-shadow:0 20px 50px -20px rgba(0,0,0,.2)}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-.toast i{font-size:13px;flex-shrink:0}
-
-/* ═══════════════════════════════════════════════
-   BOOKINGS — responsive cards
-   ═══════════════════════════════════════════════ */
-.booking-card{
-  border-radius:20px;
-  background:#1C1C1E;
-  border:1px solid rgba(255,255,255,.08);
-  padding:14px;
-  transition:border-color .3s ease;
-}
-.light .booking-card{
-  background:#fff;border-color:rgba(0,0,0,.05);
-}
-.booking-card:hover{border-color:rgba(255,255,255,.14)}
-.light .booking-card:hover{border-color:rgba(0,0,0,.1)}
-
-.booking-thumb{
-  width:70px;height:56px;border-radius:12px;
-  object-fit:cover;
-  border:1px solid rgba(255,255,255,.08);
-  flex-shrink:0;
-}
-
-/* ═══════════════════════════════════════════════
-   EMPTY STATE
-   ═══════════════════════════════════════════════ */
-.empty-state{
-  border-radius:22px;
-  background:#1C1C1E;
-  border:1px solid rgba(255,255,255,.07);
-  padding:48px 20px;
-  text-align:center;
-}
-.light .empty-state{
-  background:#fff;border-color:rgba(0,0,0,.05);
-}
-.empty-icon{
-  width:60px;height:60px;
-  border-radius:18px;
-  background:rgba(255,107,0,.12);
-  border:1px solid rgba(255,107,0,.22);
-  display:flex;align-items:center;justify-content:center;
-  margin:0 auto 16px;
-}
-.empty-icon i{font-size:22px;color:#FF6B00;opacity:.85}
-
-/* ═══════════════════════════════════════════════
-   MOBILE SMALL (< 380px) — stack everything
-   ═══════════════════════════════════════════════ */
-@media (max-width:379px){
-  .hero-banner{padding:16px}
-  .hero-title{font-size:20px}
-  .car-card-img-wrap{height:160px}
-  .car-price-num{font-size:18px}
-  .btn-book{padding:8px 14px;font-size:11px}
-  
-  /* العمودين يصيران عموداً واحداً */
-  .grid-2-mobile-stack{
-    grid-template-columns:1fr !important;
-  }
-  .delivery-opts{
-    grid-template-columns:1fr !important;
-  }
-  
-  .sheet-content{padding:16px 14px calc(18px + var(--safe-bottom))}
-  .sheet-head-img{width:64px;height:54px}
-  .timer-ring{width:72px;height:72px}
-  .timer-count{font-size:20px}
-  
-  .profile-card{padding:16px 14px}
-}
-
-/* ═══════════════════════════════════════════════
-   MOBILE MEDIUM (< 420px)
-   ═══════════════════════════════════════════════ */
-@media (max-width:419px){
-  .hero-title{font-size:23px}
-}
-
-/* ═══════════════════════════════════════════════
-   LANDSCAPE / SHORT SCREENS
-   ═══════════════════════════════════════════════ */
-@media (max-height:520px){
-  .timer-ring{width:64px;height:64px;margin-bottom:12px}
-  .timer-count{font-size:18px}
-  .timer-card{padding:18px 16px}
-}
-
-/* ═══════════════════════════════════════════════
-   IOS INPUT ZOOM PREVENTION (fallback)
-   ═══════════════════════════════════════════════ */
-@supports (-webkit-touch-callout: none){
-  .form-input,.form-select,.search-input{
-    font-size:16px !important;
-  }
-}
+.toast i{font-size:13px}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
@@ -1042,10 +773,10 @@ input,textarea,select{user-select:text}
 </style>
 </head>
 
-<body class="bg-ios-bgDark text-white min-h-screen transition-colors duration-300">
+<body class="bg-ios-bgDark text-white min-h-screen pb-24 transition-colors duration-300">
 
 <!-- ══════════════ HEADER ══════════════ -->
-<header class="app-header fixed top-0 inset-x-0 z-40 ios-blur-nav border-b border-white/10 light:border-black/5 transition-all duration-300">
+<header class="fixed top-0 inset-x-0 z-40 ios-blur-nav border-b border-white/10 light:border-black/5 transition-all duration-300">
   <div class="max-w-md mx-auto md:max-w-2xl px-4 h-16 flex items-center justify-between">
     <div class="flex items-center gap-3 cursor-pointer fade-up d1" onclick="switchTab('fleet')">
       <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-ios-orange to-amber-500 flex items-center justify-center text-white font-black text-lg shadow-ios-glow transition-transform duration-500 hover:scale-105 active:scale-95">
@@ -1062,6 +793,7 @@ input,textarea,select{user-select:text}
         <i id="themeIcon" class="fa-solid fa-moon text-[13px]"></i>
       </button>
 
+      <!-- Social trigger (replaces WhatsApp) -->
       <button id="socialTrigger" onclick="toggleSocial(event)" class="w-9 h-9 rounded-full bg-ios-cardDarkSecondary light:bg-gray-200 flex items-center justify-center text-gray-300 light:text-gray-600 hover:scale-105 active:scale-95 transition-all relative" aria-label="تابعنا">
         <i class="fa-solid fa-share-nodes text-[13px]"></i>
         <span class="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-ios-orange shadow-ios-glow"></span>
@@ -1097,22 +829,22 @@ input,textarea,select{user-select:text}
 </div>
 
 <!-- ══════════════ MAIN ══════════════ -->
-<main class="app-main max-w-md mx-auto md:max-w-2xl px-4">
+<main class="max-w-md mx-auto md:max-w-2xl px-4 pt-20">
 
   <!-- ─────── TAB 1: FLEET ─────── -->
   <section id="tab-fleet" class="tab-content active">
 
-    <div class="hero-banner fade-up d2 mb-4">
+    <div class="hero-banner fade-up d2 mb-5">
       <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&q=80&auto=format&fit=crop" alt="">
       <span class="hero-badge">
         <span class="dot"></span>
         تجربة فاخرة بسلاسة
       </span>
-      <h2 class="hero-title">
+      <h2 class="text-[26px] md:text-[30px] font-black text-white leading-[1.15] mb-2.5 tracking-tight">
         اختر سيارتك<br>
         واستمتع <span class="text-transparent bg-clip-text bg-gradient-to-r from-ios-orange to-amber-400">بقيادة استثنائية</span>
       </h2>
-      <p class="hero-desc">
+      <p class="text-[13px] leading-relaxed text-gray-300 max-w-[34ch]">
         أسطول حديث ومجهّز بالكامل. حجز في دقائق، تأكيد فوري، وخيارات دفع مرنة.
       </p>
     </div>
@@ -1122,7 +854,7 @@ input,textarea,select{user-select:text}
       <input type="text" id="searchInput" onkeyup="filterCars()" placeholder="ابحث باسم السيارة أو الموديل..." class="search-input">
     </div>
 
-    <div class="pills-scroll fade-up d4 mb-4">
+    <div class="pills-scroll fade-up d4 mb-5">
       <button onclick="setCategory('all', this)" class="pill active">الكل</button>
       <button onclick="setCategory('economy', this)" class="pill">اقتصادية</button>
       <button onclick="setCategory('sedan', this)" class="pill">سيدان</button>
@@ -1135,51 +867,51 @@ input,textarea,select{user-select:text}
 
   <!-- ─────── TAB 2: BOOKINGS ─────── -->
   <section id="tab-bookings" class="tab-content">
-    <div class="fade-up d1 mb-5 flex items-end justify-between gap-3">
-      <div class="min-w-0">
-        <h2 class="text-[22px] font-black tracking-tight leading-tight">حجوزاتي</h2>
-        <p class="text-[12px] text-gray-400 mt-1">تابع حالة طلباتك الحالية والسابقة</p>
+    <div class="fade-up d1 mb-5 flex items-end justify-between gap-4">
+      <div>
+        <h2 class="text-[24px] font-black tracking-tight leading-tight">حجوزاتي</h2>
+        <p class="text-[12.5px] text-gray-400 mt-1">تابع حالة طلباتك الحالية والسابقة</p>
       </div>
       <span id="bookingCountBadge" class="px-3 py-1.5 rounded-full bg-ios-orange/15 text-ios-orange text-[11px] font-bold border border-ios-orange/25 flex-shrink-0">0 حجوزات</span>
     </div>
-    <div id="bookingsList" class="space-y-3"></div>
+    <div id="bookingsList" class="space-y-3.5"></div>
   </section>
 
   <!-- ─────── TAB 3: PROFILE ─────── -->
   <section id="tab-profile" class="tab-content">
 
-    <div class="profile-card fade-up d1">
-      <div class="flex items-center gap-3 pb-4 mb-4 border-b border-white/8 light:border-black/5">
-        <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-ios-orange to-amber-400 flex items-center justify-center text-white text-xl font-black shadow-ios-glow transition-transform duration-500 hover:scale-105 flex-shrink-0">
+    <div class="fade-up d1 rounded-3xl bg-ios-cardDark light:bg-white border border-white/8 light:border-black/5 p-5 mb-4">
+      <div class="flex items-center gap-4 pb-5 mb-5 border-b border-white/8 light:border-black/5">
+        <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-ios-orange to-amber-400 flex items-center justify-center text-white text-2xl font-black shadow-ios-glow transition-transform duration-500 hover:scale-105">
           <span id="profileAvatarInitial">ع</span>
         </div>
         <div class="flex-1 min-w-0">
-          <h3 id="profileHeaderName" class="text-[16px] font-black tracking-tight truncate">عزام المعيي</h3>
-          <p id="profileHeaderPhone" class="text-[11.5px] text-gray-400 mt-1" dir="ltr">0503337182</p>
+          <h3 id="profileHeaderName" class="text-[17px] font-black tracking-tight">عزام المعيي</h3>
+          <p id="profileHeaderPhone" class="text-[12px] text-gray-400 mt-1" dir="ltr">0503337182</p>
           <span class="inline-flex items-center gap-1.5 mt-2 px-2.5 py-0.5 rounded-full bg-ios-green/15 text-ios-green text-[10px] font-bold border border-ios-green/25">
             <i class="fa-solid fa-circle-check text-[8px]"></i> حساب موثوق
           </span>
         </div>
       </div>
 
-      <form id="profileForm" onsubmit="saveProfileData(event)" class="space-y-3.5">
+      <form id="profileForm" onsubmit="saveProfileData(event)" class="space-y-4">
         <div>
           <label class="form-label">الاسم الكامل (كما في الهوية)</label>
           <input type="text" id="profName" required class="form-input">
         </div>
 
-        <div class="grid-2-mobile-stack">
+        <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="form-label">رقم الجوال</label>
             <input type="tel" id="profPhone" required dir="ltr" class="form-input" style="text-align:right">
           </div>
           <div>
             <label class="form-label">رقم الهوية / الإقامة</label>
-            <input type="tel" id="profId" required dir="ltr" class="form-input" style="text-align:right">
+            <input type="number" id="profId" required dir="ltr" class="form-input" style="text-align:right">
           </div>
         </div>
 
-        <div class="grid-2-mobile-stack">
+        <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="form-label">العمر</label>
             <input type="number" id="profAge" min="18" max="90" required class="form-input">
@@ -1203,11 +935,11 @@ input,textarea,select{user-select:text}
     </div>
 
     <div class="grid grid-cols-2 gap-3 fade-up d2 mb-4">
-      <div class="stat-box">
+      <div class="rounded-2xl bg-ios-cardDark light:bg-white border border-white/8 light:border-black/5 p-4 text-center">
         <p class="text-[11px] text-gray-400 font-semibold mb-2">إجمالي الحجوزات</p>
-        <h4 id="statTotalBookings" class="text-[26px] font-black text-ios-orange leading-none">0</h4>
+        <h4 id="statTotalBookings" class="text-[28px] font-black text-ios-orange leading-none">0</h4>
       </div>
-      <div class="stat-box">
+      <div class="rounded-2xl bg-ios-cardDark light:bg-white border border-white/8 light:border-black/5 p-4 text-center">
         <p class="text-[11px] text-gray-400 font-semibold mb-2">حالة الرخصة</p>
         <h4 class="text-[13px] font-black text-ios-green inline-flex items-center gap-1.5 mt-1">
           <i class="fa-solid fa-circle-check text-[10px]"></i> سارية
@@ -1215,6 +947,7 @@ input,textarea,select{user-select:text}
       </div>
     </div>
 
+    <!-- Logout -->
     <button onclick="handleLogout()" class="logout-btn fade-up d3">
       <span class="left">
         <i class="fa-solid fa-arrow-right-from-bracket"></i>
@@ -1252,17 +985,16 @@ input,textarea,select{user-select:text}
 <div id="bookingSheet" class="sheet-overlay">
   <div class="sheet-content">
     <div class="sheet-handle" onclick="closeSheet()"></div>
-    <button onclick="closeSheet()" class="sheet-close" aria-label="إغلاق" type="button">
+    <button onclick="closeSheet()" class="sheet-close" aria-label="إغلاق">
       <i class="fa-solid fa-xmark"></i>
     </button>
 
-    <!-- رأس البطاقة -->
-    <div class="sheet-head">
-      <img id="sheetCarImg" src="" alt="" class="sheet-head-img">
-      <div class="sheet-head-info">
+    <div class="flex items-center gap-4 pb-4 mb-4 border-b border-white/8 light:border-black/5">
+      <img id="sheetCarImg" src="" alt="" class="w-24 h-20 rounded-2xl object-cover border border-white/8 flex-shrink-0">
+      <div class="flex-1 min-w-0">
         <span id="sheetCarCat" class="inline-block px-2.5 py-0.5 rounded-full bg-ios-orange/15 text-ios-orange text-[10px] font-bold border border-ios-orange/25"></span>
-        <h3 id="sheetCarName" class="text-[15px] font-black mt-1.5 tracking-tight leading-tight truncate"></h3>
-        <p class="text-[12.5px] mt-1 flex items-baseline gap-1">
+        <h3 id="sheetCarName" class="text-[16px] font-black mt-2 tracking-tight leading-tight"></h3>
+        <p class="text-[13px] mt-1 flex items-baseline gap-1">
           <strong id="sheetCarPrice" class="text-ios-orange text-[15px] font-black"></strong>
           <span class="text-[10px] text-gray-400 font-medium">ريال / يوم</span>
         </p>
@@ -1272,7 +1004,7 @@ input,textarea,select{user-select:text}
     <form id="bookingForm" onsubmit="event.preventDefault();">
 
       <!-- تاريخ + أيام -->
-      <div class="grid-2-mobile-stack mb-3">
+      <div class="grid grid-cols-2 gap-3 mb-3">
         <div>
           <label class="form-label">تاريخ الاستلام</label>
           <input type="date" id="bookPickupDate" onchange="calculateBookingTotal()" required class="form-input">
@@ -1316,9 +1048,9 @@ input,textarea,select{user-select:text}
       <div class="mb-3">
         <input type="text" id="bookCustName" placeholder="الاسم الثلاثي *" required class="form-input">
       </div>
-      <div class="grid-2-mobile-stack mb-4">
+      <div class="grid grid-cols-2 gap-3 mb-4">
         <input type="tel" id="bookCustPhone" placeholder="05XXXXXXXX *" dir="ltr" required class="form-input" style="text-align:right">
-        <input type="tel" id="bookCustId" placeholder="رقم الهوية *" dir="ltr" required class="form-input" style="text-align:right">
+        <input type="number" id="bookCustId" placeholder="رقم الهوية *" dir="ltr" required class="form-input" style="text-align:right">
       </div>
 
       <!-- المبلغ -->
@@ -1328,19 +1060,19 @@ input,textarea,select{user-select:text}
           <span class="block text-[10px] text-gray-400 mt-0.5">شامل الضريبة</span>
         </div>
         <div class="flex items-baseline gap-1.5">
-          <span id="bookTotalDisplay" class="text-[24px] font-black text-ios-green leading-none tabular-nums">0</span>
+          <span id="bookTotalDisplay" class="text-[26px] font-black text-ios-green leading-none tabular-nums">0</span>
           <span class="text-[11px] font-bold text-ios-green">ريال</span>
         </div>
       </div>
 
       <!-- Actions -->
-      <div class="space-y-2.5">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
         <button type="button" onclick="submitCompleteBooking()" class="btn-submit">
           <i class="fa-solid fa-circle-check"></i>
           تأكيد الحجز
         </button>
-        <button type="button" onclick="submitInquireWhatsApp()" class="w-full py-3.5 rounded-[13px] font-black text-[14px] flex items-center justify-center gap-2 transition-all active:scale-[.98] border font-sans"
-          style="background:rgba(52,199,89,.13);color:#34C759;border-color:rgba(52,199,89,.28);min-height:48px;cursor:pointer">
+        <button type="button" onclick="submitInquireWhatsApp()" class="w-full py-3.5 rounded-[13px] font-black text-[13.5px] flex items-center justify-center gap-2 transition-all active:scale-[.98] border font-sans"
+          style="background:rgba(52,199,89,.13);color:#34C759;border-color:rgba(52,199,89,.28)">
           <i class="fa-brands fa-whatsapp text-[15px]"></i>
           استفسار عبر واتساب
         </button>
@@ -1422,7 +1154,7 @@ let userData = {
 };
 let myBookings = [];
 
-const DELIVERY_FEE = 50;
+const DELIVERY_FEE = 50; // ريال / يوم
 
 /* ═══════════════════════════════════════════════
    INIT
@@ -1439,6 +1171,7 @@ window.addEventListener('load', () => {
   dateInput.value = today;
   dateInput.min = today;
 
+  // close popover on outside click
   document.addEventListener('click', (e) => {
     const pop = document.getElementById('socialPopover');
     const trig = document.getElementById('socialTrigger');
@@ -1483,8 +1216,8 @@ function renderCars() {
 
   if (filtered.length === 0) {
     container.innerHTML = `
-      <div class="col-span-full empty-state fade-up">
-        <div class="empty-icon"><i class="fa-solid fa-car-tunnel"></i></div>
+      <div class="col-span-full rounded-3xl bg-ios-cardDark light:bg-white border border-white/8 light:border-black/5 p-14 text-center fade-up">
+        <i class="fa-solid fa-car-tunnel text-3xl text-gray-500 mb-4 block opacity-60"></i>
         <p class="text-[14px] font-bold text-gray-300 light:text-gray-700">لا توجد سيارات مطابقة</p>
         <p class="text-[12px] text-gray-500 mt-1.5">جرّب البحث بكلمات أخرى أو تصفّح فئة مختلفة</p>
       </div>
@@ -1558,12 +1291,9 @@ function openBookingSheet(carId) {
 
   calculateBookingTotal(true);
   document.getElementById('bookingSheet').classList.add('active');
-  // منع تمرير الخلفية عند فتح البطاقة
-  document.body.style.overflow = 'hidden';
 }
 function closeSheet() {
   document.getElementById('bookingSheet').classList.remove('active');
-  document.body.style.overflow = '';
 }
 
 function getDeliveryValue() {
@@ -1626,7 +1356,7 @@ function submitCompleteBooking() {
     carImage: currentSelectedCar.image,
     pickupDate,
     days,
-    delivery,
+    delivery,        // استلام من الفرع / التوصيل للعميل
     total,
     status: 'قيد المراجعة',
     createdAt: new Date().toLocaleTimeString('ar-SA', { hour:'2-digit', minute:'2-digit' })
@@ -1672,7 +1402,6 @@ function startCountdownTimer() {
 }
 function goToMyBookingsFromTimer() {
   document.getElementById('timerModal').classList.remove('active');
-  document.body.style.overflow = '';
   switchTab('bookings');
 }
 
@@ -1722,8 +1451,8 @@ function renderBookingsUI() {
 
   if (count === 0) {
     container.innerHTML = `
-      <div class="empty-state fade-up d1">
-        <div class="empty-icon"><i class="fa-regular fa-calendar"></i></div>
+      <div class="rounded-3xl bg-ios-cardDark light:bg-white border border-white/8 light:border-black/5 p-14 text-center fade-up d1">
+        <i class="fa-regular fa-calendar text-3xl text-gray-500 mb-4 block opacity-60"></i>
         <p class="text-[14px] font-bold text-gray-300 light:text-gray-700">لا توجد حجوزات حتى الآن</p>
         <p class="text-[12px] text-gray-500 mt-1.5">تصفّح الأسطول واحجز سيارتك المفضلة</p>
         <button onclick="switchTab('fleet')" class="btn-book mt-6">تصفح السيارات</button>
@@ -1733,23 +1462,23 @@ function renderBookingsUI() {
   }
 
   container.innerHTML = myBookings.map((b, i) => `
-    <article class="booking-card fade-up" style="animation-delay:${0.05 + i * 0.08}s">
-      <div class="flex items-center justify-between gap-2 pb-3 mb-3 border-b border-white/8 light:border-black/5">
+    <article class="fade-up rounded-3xl bg-ios-cardDark light:bg-white border border-white/8 light:border-black/5 p-4 transition-colors hover:border-white/14 light:hover:border-black/10" style="animation-delay:${0.05 + i * 0.08}s">
+      <div class="flex items-center justify-between gap-3 pb-3 mb-3 border-b border-white/8 light:border-black/5">
         <div class="flex items-center gap-2 min-w-0">
-          <span class="text-[11px] font-black text-ios-orange tabular-nums">${b.id}</span>
+          <span class="text-[11.5px] font-black text-ios-orange tabular-nums">${b.id}</span>
           <span class="text-[10px] text-gray-500">${b.createdAt}</span>
         </div>
-        <span class="px-2.5 py-1 rounded-full bg-amber-500/15 text-amber-400 text-[10px] font-bold border border-amber-500/25 inline-flex items-center gap-1.5 flex-shrink-0">
+        <span class="px-3 py-1 rounded-full bg-amber-500/15 text-amber-400 text-[10.5px] font-bold border border-amber-500/25 inline-flex items-center gap-1.5 flex-shrink-0">
           <i class="fa-solid fa-circle-notch text-[9px] animate-spin"></i>
           ${b.status}
         </span>
       </div>
 
-      <div class="flex items-start gap-3">
-        <img src="${b.carImage}" alt="" class="booking-thumb">
+      <div class="flex items-center gap-3">
+        <img src="${b.carImage}" alt="" class="w-[80px] h-[64px] rounded-xl object-cover border border-white/8 flex-shrink-0">
         <div class="flex-1 min-w-0">
-          <h4 class="text-[13.5px] font-black tracking-tight truncate light:text-black">${b.carName}</h4>
-          <p class="text-[11px] text-gray-400 mt-1.5 flex items-center gap-1.5 truncate">
+          <h4 class="text-[14px] font-black tracking-tight truncate light:text-black">${b.carName}</h4>
+          <p class="text-[11px] text-gray-400 mt-1 flex items-center gap-1.5 truncate">
             <i class="fa-solid fa-truck-fast text-ios-orange text-[10px]"></i>
             ${b.delivery || 'استلام من الفرع'}
           </p>
@@ -1758,13 +1487,17 @@ function renderBookingsUI() {
             ${b.pickupDate} · ${b.days} أيام
           </p>
         </div>
+        <div class="text-left flex-shrink-0">
+          <span class="text-[16px] font-black text-ios-green tabular-nums leading-none block">${b.total.toLocaleString('en-US')}</span>
+          <span class="text-[9.5px] text-gray-500 font-semibold block mt-1">ريال</span>
+        </div>
       </div>
 
       <div class="flex items-center justify-between gap-3 pt-3 mt-3 border-t border-white/8 light:border-black/5">
-        <div class="flex items-baseline gap-1">
-          <span class="text-[16px] font-black text-ios-green tabular-nums leading-none">${b.total.toLocaleString('en-US')}</span>
-          <span class="text-[10px] text-gray-500 font-semibold">ريال</span>
-        </div>
+        <span class="text-[10.5px] text-gray-500 flex items-center gap-1.5">
+          <i class="fa-solid fa-clock text-ios-orange text-[10px]"></i>
+          تم الإرسال للمراجعة
+        </span>
         <a href="https://wa.me/966511749598?text=${encodeURIComponent('مرحباً، أستفسر عن حالة الحجز: ' + b.id)}" target="_blank" class="text-ios-green font-black text-[11.5px] inline-flex items-center gap-1.5 hover:opacity-70 transition-opacity">
           <i class="fa-brands fa-whatsapp text-[13px]"></i>
           الدعم
